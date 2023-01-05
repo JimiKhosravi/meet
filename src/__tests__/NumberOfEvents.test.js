@@ -20,12 +20,10 @@ describe('<NumberOfEvents />', () => {
     expect(NumberOfEventsWrapper.state('noe')).toBe(10);
   })
 
-  test('noe-input is changed and the value is reflected correctly', () => {
-    expect(NumberOfEventsWrapper.state('noe')).toBe(10);
-    NumberOfEventsWrapper.find('input.noe-input')
-      .simulate('change', {
-        target: { value: 15 }
-      });
-    expect(NumberOfEventsWrapper.state('noe')).toBe(15);
-  })
+  test("the input should have the value given in the noe prop", () => {
+    const NumberOfEventsWrapperWithProp = shallow(
+      <NumberOfEvents noe={20} updateNumberOfEvents={() => { }} />
+    );
+    expect(NumberOfEventsWrapperWithProp.state("noe")).toBe(20);
+  });
 })

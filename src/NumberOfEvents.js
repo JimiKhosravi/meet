@@ -8,7 +8,8 @@ class NumberOfEvents extends Component {
   }
 
   changeNOE(value) {
-    this.setState({ noe: value })
+    this.setState({ noe: value });
+    this.props.updateNumberOfEvents(value);
   }
 
   render() {
