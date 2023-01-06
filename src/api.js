@@ -7,8 +7,9 @@
  * The Set will remove all duplicates from the array.
  */
 
+// import axios from 'axios';
+// const axios = require('axios');
 import { mockData } from './mock-data';
-import axios from 'axios';
 import NProgress from 'nprogress';
 
 export const extractLocations = (events) => {
