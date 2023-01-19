@@ -207,7 +207,10 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
-
+.alert-centered {
+  justify-content: center;
+  align-items: center;
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
