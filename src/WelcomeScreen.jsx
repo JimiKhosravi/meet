@@ -22,6 +22,8 @@ function WelcomeScreen(props) {
               class="btn-text" >
               <b>Sign in with google</b>
             </button>
+          </div>
+          <div>
             Page 1
           </div>
         </div>
