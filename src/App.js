@@ -39,50 +39,20 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    this.mounted = true;
-    // const accessToken = localStorage.getItem("access_token");
-    // const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-    // const searchParams = new URLSearchParams(window.location.search);
-    // const code = searchParams.get("code");
-    // this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    // if ((code || isTokenValid) && this.mounted)
-    //   getEvents().then((events) => {
-    //     if (this.mounted) {
-    //       this.setState({
-    //         events: events.slice(0, this.state.numberOfEvents),
-    //         locations: extractLocations(events),
-    //       });
-    //     }
-    //   });
-
-    const isLocal =
-      window.location.href.startsWith("http://localhost");
-    if (navigator.onLine && !isLocal) {
-      const accessToken = localStorage.getItem("access_token");
-      const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-      const searchParams = new URLSearchParams(window.location.search);
-      const code = searchParams.get("code");
-      this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-      if ((code || isTokenValid) && this.mounted)
-        getEvents().then((events) => {
-          if (this.mounted) {
-            this.setState({
-              events: events.slice(0, this.state.numberOfEvents),
-              locations: extractLocations(events),
-            });
-          }
-        });
-    } else {
+    const accessToken = localStorage.getItem("access_token");
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted)
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({
-            showWelcomeScreen: false,
             events: events.slice(0, this.state.numberOfEvents),
             locations: extractLocations(events),
           });
         }
       });
-    }
   }
 
   componentWillUnmount() {
