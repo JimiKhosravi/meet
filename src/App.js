@@ -57,7 +57,6 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-
     const accessToken = localStorage.getItem('access_token');
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
@@ -97,7 +96,7 @@ class App extends Component {
         </div>
         <CitySearch locations={locations} updateEvents={this.updateEvents} />
         <NumberOfEvents
-          num={numberOfEvents}
+          noe={numberOfEvents}
           updateNumberOfEvents={this.updateEvents}
         />
         <h4>Events in each city</h4>
